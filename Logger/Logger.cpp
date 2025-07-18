@@ -36,3 +36,7 @@ std::string Logger::levelToString(LoggerPriority level){
   };
   return "INFO";
 }
+
+void Logger::setNewPriority(const LoggerPriority newPriority){
+  defaultPriority = newPriority;
+}
