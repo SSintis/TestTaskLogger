@@ -1,6 +1,7 @@
 #include "Logger.hpp"
 #include <iostream>
 #include <ctime>
+#include <iomanip>
 
 Logger::Logger(const std::string& filename, const LoggerPriority priority){
   this->defaultPriority = priority;
@@ -11,16 +12,18 @@ Logger::Logger(const std::string& filename, const LoggerPriority priority){
 }
 
 void Logger::newLog(const std::string& message, const LoggerPriority priority){
-  time_t seconds = time(NULL);
-  tm* timeinfo = localtime(&seconds);
-  std::cout<<"Текущее время и дата:"<<asctime(timeinfo)<<std::endl;
-
+  time_t now = time(nullptr);
+  tm *tm_now = localtime(&now);
+  
+  std::stringstream ss;
+  ss << std::put_time(tm_now, "%H:%M:%S");  // Формат: ЧЧ:ММ:СС
+  
   if(priority >= defaultPriority){
     if(!file.is_open()){
       file.open(this->filename);
     }
 
-    std::string formatedMessage = "[" + levelToString(priority) + "] " + message + "\n";
+    std::string formatedMessage = "[" + levelToString(priority) + "] " + ss.str() + " - " + message + "\n";
     file.write(formatedMessage.data(), formatedMessage.size());
   }
 }

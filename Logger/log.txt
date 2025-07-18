@@ -1,1 +1,1 @@
-[ERROR] eq
+[ERROR] 17:14:36 - eq
