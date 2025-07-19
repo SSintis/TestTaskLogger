@@ -11,8 +11,8 @@ enum class LoggerPriority{
 
 class Logger{
 public:
-  Logger(const std::string& filename, const LoggerPriority prioriry);
-  void newLog(const std::string& message, const LoggerPriority prioriry);
+  Logger(const std::string& filename, const LoggerPriority priority);
+  void newLog(const std::string& message, const LoggerPriority priority);
   void setNewPriority(const LoggerPriority newPriority);
 
 private:

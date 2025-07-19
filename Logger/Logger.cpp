@@ -1,14 +1,12 @@
 #include "Logger.hpp"
-#include <iostream>
 #include <ctime>
 #include <iomanip>
+#include <stdexcept>
 
-Logger::Logger(const std::string& filename, const LoggerPriority priority){
-  this->defaultPriority = priority;
+Logger::Logger(const std::string& filename, const LoggerPriority priority) : defaultPriority(priority), filename(filename){
   file.open(filename);
-
-  if(file.is_open()) this->filename = filename;
-  else std::cerr << "ERROR WITH LOGGER: incorrect filename." << std::endl;
+  
+  if(!file.is_open()) throw std::runtime_error("Logger: Failed to open file: " + filename);
 }
 
 void Logger::newLog(const std::string& message, const LoggerPriority priority){
@@ -16,7 +14,7 @@ void Logger::newLog(const std::string& message, const LoggerPriority priority){
   tm *tm_now = localtime(&now);
   
   std::stringstream ss;
-  ss << std::put_time(tm_now, "%H:%M:%S");  // Формат: ЧЧ:ММ:СС
+  ss << std::put_time(tm_now, "%H:%M:%S");
   
   if(priority >= defaultPriority){
     if(!file.is_open()){
