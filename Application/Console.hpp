@@ -10,7 +10,5 @@ struct message{
 
 class Console{
 public:
-
-private:
-
+  message WaitNewMessage();
 };
