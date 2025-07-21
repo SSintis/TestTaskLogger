@@ -30,9 +30,9 @@ std::string Logger::levelToString(LoggerPriority level){
   switch (level) {
     case LoggerPriority::DEBUG: return "DEBUG";
     case LoggerPriority::INFO:  return "INFO";
-    case LoggerPriority::ERROR:return "ERROR";
+    case LoggerPriority::ERROR: return "ERROR";
+    case LoggerPriority::UNKNOWN: return levelToString(this->defaultPriority);
   };
-  return "INFO";
 }
 
 void Logger::setNewPriority(const LoggerPriority newPriority){

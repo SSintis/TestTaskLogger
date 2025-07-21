@@ -20,8 +20,12 @@ message Console::WaitNewMessage(){
     {"error",  LoggerPriority::ERROR}
   };
 
-  LoggerPriority it = commands.find(level);
-  log.level = it;
+  auto it = commands.find(level);
+  if (it != commands.end()) {
+    log.level = it->second; 
+  } else {
+    log.level = LoggerPriority::UNKNOWN;
+  }
 
-  return;
+  return log;
 }

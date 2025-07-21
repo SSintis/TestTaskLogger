@@ -6,7 +6,8 @@
 enum class LoggerPriority{
   DEBUG,
   INFO,
-  ERROR 
+  ERROR, 
+  UNKNOWN
 };
 
 class Logger{
