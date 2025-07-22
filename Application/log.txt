@@ -1,0 +1,4 @@
+[DEBUG] 12:33:58 - djessi
+[INFO] 12:34:04 - looooooh
+[ERROR] 12:34:11 - error
+[DEBUG] 12:34:15 - fffff

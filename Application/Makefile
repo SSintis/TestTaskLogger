@@ -4,7 +4,7 @@ LIB_DIR = ../Logger
 INC_DIR = ../Logger
 LIB_NAME = Logger
 
-SRC = LoggerApp.cpp
+SRC = LoggerApp.cpp Console.cpp
 
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -I$(INC_DIR)

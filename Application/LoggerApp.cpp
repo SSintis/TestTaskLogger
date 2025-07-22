@@ -5,8 +5,11 @@ int main(){
   Console console;
   Logger log("log.txt", LoggerPriority::DEBUG);
 
-  while(true){
+  int i = 0;
+  while(i < 4){
     message newMessage = console.WaitNewMessage();
     log.newLog(newMessage.message, newMessage.level); 
+  
+    i++;
   }
 }

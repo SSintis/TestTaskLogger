@@ -33,6 +33,7 @@ std::string Logger::levelToString(LoggerPriority level){
     case LoggerPriority::ERROR: return "ERROR";
     case LoggerPriority::UNKNOWN: return levelToString(this->defaultPriority);
   };
+  return levelToString(this->defaultPriority);
 }
 
 void Logger::setNewPriority(const LoggerPriority newPriority){
