@@ -11,3 +11,5 @@
 [DEBUG] 12:46:20 - 
 [DEBUG] 12:46:21 - 
 [DEBUG] 13:13:11 - teeest
+[DEBUG] 13:39:12 - test2
+[ERROR] 13:39:25 - test3

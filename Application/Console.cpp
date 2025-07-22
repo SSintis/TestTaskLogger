@@ -3,6 +3,30 @@
 #include <string>
 #include <map>
 
+LoggerPriority Console::getLogger(const std::string& level){
+  static const std::map<std::string, LoggerPriority> commands = {
+    {"debug", LoggerPriority::DEBUG},
+    {"info", LoggerPriority::INFO},
+    {"error", LoggerPriority::ERROR}
+  };
+
+  auto it = commands.find(level);
+  if(it != commands.end()){
+    return it->second;
+  } else {
+    return LoggerPriority::UNKNOWN;
+  }
+}
+
+LoggerPriority Console::setPriority(){
+  std::string level;
+
+  std::cout << "(write new priority: debug, info, error) -> ";
+  std::getline(std::cin, level);
+
+  return getLogger(level);
+}
+
 message Console::WaitNewMessage(){
   message log;
 
@@ -14,18 +38,7 @@ message Console::WaitNewMessage(){
   std::cout << "(debug, info, error) -> ";
   std::getline(std::cin, level);
 
-  static const std::map<std::string, LoggerPriority> commands = {
-    {"debug", LoggerPriority::DEBUG},
-    {"info",  LoggerPriority::INFO},
-    {"error",  LoggerPriority::ERROR}
-  };
-
-  auto it = commands.find(level);
-  if (it != commands.end()) {
-    log.level = it->second; 
-  } else {
-    log.level = LoggerPriority::UNKNOWN;
-  }
+  log.level = getLogger(level);
 
   return log;
 }

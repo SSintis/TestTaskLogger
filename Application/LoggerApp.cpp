@@ -15,7 +15,10 @@ int main(){
 
         break;
       }
-      case command::SETNEWDEFAULTPRIORITY:
+      case command::SETNEWDEFAULTPRIORITY:{
+        log.setNewPriority(console.setPriority());
+        break;
+      }
       case command::EXIT: return 0;
       case command::HELP: console.help(); break;
       case command::EMPTY: break;
