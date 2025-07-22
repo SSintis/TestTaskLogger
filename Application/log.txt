@@ -1,4 +1,12 @@
-[DEBUG] 12:33:58 - djessi
-[INFO] 12:34:04 - looooooh
-[ERROR] 12:34:11 - error
-[DEBUG] 12:34:15 - fffff
+[DEBUG] 12:40:32 - fsfsefsef
+[DEBUG] 12:40:35 - sefsefse
+[INFO] 12:40:41 - gdrgrd
+[ERROR] 12:40:45 - fsesfsef
+[DEBUG] 12:40:57 - sssss
+[INFO] 12:41:00 - sssss
+[INFO] 12:41:04 - ssss
+[INFO] 12:41:08 - sssss
+[DEBUG] 12:46:14 - fff
+[DEBUG] 12:46:17 - 
+[DEBUG] 12:46:20 - 
+[DEBUG] 12:46:21 - 

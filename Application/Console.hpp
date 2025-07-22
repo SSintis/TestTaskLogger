@@ -8,7 +8,16 @@ struct message{
   LoggerPriority level; 
 };
 
+enum class command{
+  EXIT,
+  NEWLOG,
+  SETNEWDEFAULTPRIORITY,
+  HELP,
+  EMPTY
+};
+
 class Console{
 public:
   message WaitNewMessage();
+  command WaitCommands();
 };

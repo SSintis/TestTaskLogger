@@ -8,7 +8,7 @@ message Console::WaitNewMessage(){
 
   std::string level;
 
-  std::cout << "\n(message) -> ";
+  std::cout << "(message) -> ";
   std::getline(std::cin, log.message);
 
   std::cout << "(debug, info, error) -> ";
@@ -28,4 +28,25 @@ message Console::WaitNewMessage(){
   }
 
   return log;
+}
+
+command Console::WaitCommands(){
+  static const std::map<std::string, command> commands = {
+    {"exit", command::EXIT},
+    {"stp", command::SETNEWDEFAULTPRIORITY},
+    {"nlog", command::NEWLOG},
+    {"help", command::HELP}
+  };
+
+  std::string com;
+
+  std::cout << "-> ";
+  std::getline(std::cin, com);
+
+  auto it = commands.find(com);
+  if(it != commands.end()){
+    return it->second;
+  } else {
+    return command::EMPTY;
+  }
 }

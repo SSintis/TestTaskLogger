@@ -1,10 +1,11 @@
 #include "Logger.hpp"
 #include <ctime>
+#include <fstream>
 #include <iomanip>
 #include <stdexcept>
 
 Logger::Logger(const std::string& filename, const LoggerPriority priority) : defaultPriority(priority), filename(filename){
-  file.open(filename);
+  file.open(filename, std::ofstream::out | std::ofstream::app);
   
   if(!file.is_open()) throw std::runtime_error("Logger: Failed to open file: " + filename);
 }
@@ -18,11 +19,14 @@ void Logger::newLog(const std::string& message, const LoggerPriority priority){
   
   if(priority >= defaultPriority){
     if(!file.is_open()){
-      file.open(this->filename);
+      file.open(this->filename, std::ofstream::out | std::ofstream::app);
     }
 
     std::string formatedMessage = "[" + levelToString(priority) + "] " + ss.str() + " - " + message + "\n";
     file.write(formatedMessage.data(), formatedMessage.size());
+    file.flush();
+
+    file.close();
   }
 }
 
