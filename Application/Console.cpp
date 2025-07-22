@@ -33,7 +33,7 @@ message Console::WaitNewMessage(){
 command Console::WaitCommands(){
   static const std::map<std::string, command> commands = {
     {"exit", command::EXIT},
-    {"stp", command::SETNEWDEFAULTPRIORITY},
+    {"snp", command::SETNEWDEFAULTPRIORITY},
     {"nlog", command::NEWLOG},
     {"help", command::HELP}
   };
@@ -49,4 +49,12 @@ command Console::WaitCommands(){
   } else {
     return command::EMPTY;
   }
+}
+
+void Console::help(){
+  std::cout << "---help---\n";
+  std::cout << "exit - \n";
+  std::cout << "snp - set new default priority\n";
+  std::cout << "nlog - new log\n";
+  std::cout << "help - show all commands\n";
 }

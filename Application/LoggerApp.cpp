@@ -5,11 +5,20 @@ int main(){
   Console console;
   Logger log("log.txt", LoggerPriority::DEBUG);
 
-  int i = 0;
-  while(i < 4){
-    message newMessage = console.WaitNewMessage();
-    log.newLog(newMessage.message, newMessage.level); 
-  
-    i++;
+  while(true){
+    command commands = console.WaitCommands();
+
+    switch (commands) {
+      case command::NEWLOG: {
+        message mes = console.WaitNewMessage(); 
+        log.newLog(mes.message, mes.level);
+
+        break;
+      }
+      case command::SETNEWDEFAULTPRIORITY:
+      case command::EXIT: return 0;
+      case command::HELP: console.help(); break;
+      case command::EMPTY: break;
+    }
   }
 }

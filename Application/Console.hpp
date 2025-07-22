@@ -20,4 +20,5 @@ class Console{
 public:
   message WaitNewMessage();
   command WaitCommands();
+  void help();
 };
