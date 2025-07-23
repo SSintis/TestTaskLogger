@@ -1,1 +1,3 @@
-# TestTaskLogger
+# Logger & example application
+
+Это тест
