@@ -11,11 +11,8 @@ LoggerPriority Console::getLogger(const std::string& level){
   };
 
   auto it = commands.find(level);
-  if(it != commands.end()){
-    return it->second;
-  } else {
-    return LoggerPriority::UNKNOWN;
-  }
+  if(it != commands.end()){ return it->second; }
+  else { return LoggerPriority::UNKNOWN; }
 }
 
 LoggerPriority Console::setPriority(){

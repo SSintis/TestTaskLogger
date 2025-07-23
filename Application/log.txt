@@ -13,3 +13,4 @@
 [DEBUG] 13:13:11 - teeest
 [DEBUG] 13:39:12 - test2
 [ERROR] 13:39:25 - test3
+[INFO] 11:22:39 - fsfs

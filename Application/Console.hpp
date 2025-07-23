@@ -22,7 +22,5 @@ public:
   command WaitCommands();
   void help();
   LoggerPriority setPriority();
-
-private:
   LoggerPriority getLogger(const std::string& level);
 };
