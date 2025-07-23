@@ -23,7 +23,9 @@ int main(int argc, char* argv[]){
   
   try{
     Logger log(filename, defaultPriority);
-    while(true){
+    bool exit = 0;
+
+    while(!exit){
       command commands = console.WaitCommands();
 
       switch (commands) {
@@ -37,7 +39,7 @@ int main(int argc, char* argv[]){
           log.setNewPriority(console.setPriority());
           break;
         }
-        case command::EXIT: return 0;
+        case command::EXIT: exit = 1; break;
         case command::HELP: console.help(); break;
         case command::EMPTY: break;
       }
