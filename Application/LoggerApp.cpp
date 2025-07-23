@@ -25,6 +25,7 @@ int main(int argc, char* argv[]){
     Logger log(filename, defaultPriority);
     bool exit = 0;
 
+    std::cout << "Type 'help' to display avaible commands." << std::endl;
     while(!exit){
       command commands = console.WaitCommands();
 
