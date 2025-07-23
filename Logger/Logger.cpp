@@ -30,6 +30,8 @@ void Logger::newLog(const std::string& message, const LoggerPriority priority){
     logQueue.push(formatedMessage);
   }
   cv.notify_one();
+
+  file.close();
 }
 
 void Logger::writeLoop(){
@@ -75,9 +77,11 @@ void Logger::setNewPriority(const LoggerPriority newPriority){
 Logger::~Logger() {
   {
     std::lock_guard<std::mutex> lock(queueMutex);
-    running = false;  // Говорим потоку остановиться
+    running = false;
   }
-  cv.notify_all();      // Будим поток, если он спит
+  
+  cv.notify_one();
+  
   if (writerThread.joinable()) {
     try {
       if (writerThread.get_id() != std::this_thread::get_id()) {
