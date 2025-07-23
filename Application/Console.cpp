@@ -61,10 +61,27 @@ command Console::WaitCommands(){
   }
 }
 
-void Console::help(){
-  std::cout << "---help---\n";
-  std::cout << "exit - \n";
-  std::cout << "snp - set new default priority\n";
-  std::cout << "nlog - new log\n";
-  std::cout << "help - show all commands\n";
+void Console::help() {
+    std::cout << "\n=== Logger App Help ===\n";
+    std::cout << "Available commands:\n\n";
+    
+    std::cout << "exit - Exit the application\n";
+    std::cout << "  Usage: Just type 'exit' to quit\n\n";
+    
+    std::cout << "snp (Set New Priority) - Change the default log level filter\n";
+    std::cout << "  Usage: snp -> then enter one of: debug, info, error\n";
+    std::cout << "  Effect: Messages below this level won't be logged\n\n";
+    
+    std::cout << "nlog (New Log) - Create a new log entry\n";
+    std::cout << "  Usage: nlog -> enter message -> select level (debug/info/error)\n";
+    std::cout << "  Example:\n";
+    std::cout << "    -> nlog\n";
+    std::cout << "    (message) -> Server started\n";
+    std::cout << "    (debug, info, error) -> info\n\n";
+    
+    std::cout << "help - Display this help message\n";
+    std::cout << "  Usage: help\n\n";
+    
+    std::cout << "Note: Logs are saved to the file specified at startup\n";
+    std::cout << "======================================\n\n";
 }
